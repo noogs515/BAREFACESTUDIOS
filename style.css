@@ -8,6 +8,7 @@
 /*-------Global Settings-----*/
 html{
   font-family: "Cormorant", serif;
+  background-color: #f1dede;
 }
 
 /* ----- HEADER ----- */
@@ -84,7 +85,7 @@ header a {
 
 /* ----- About Me Section----- */
 
-#aboutMe{
+/*#aboutMe{
     display: flex;
     flex-direction: row;
     margin-left: 10vw;
@@ -101,7 +102,7 @@ header a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center; /* center bubbles horizontally */
+  align-items: center;
 }
 
 .bubble{
@@ -124,6 +125,107 @@ header a {
     font-size: 20px;
     letter-spacing: .2rem;
 }
+*/
+
+/* ========== Mobile-first defaults (phones) ========== */
+#aboutMe{
+  display: flex;
+  flex-direction: column;          /* stack on mobile */
+  align-items: center;             /* center contents */
+  gap: 2rem;
+  padding: 2rem 1rem;              /* breathing room on small screens */
+  width: 100%;
+  min-height: 60vh;                /* avoid locking to full viewport height */
+  background-image: url("./assets/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#aboutMe img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5%;
+  padding: 1em;
+}
+
+/* Bubbles container and items */
+.bubbleContainer{
+  display: flex;
+  flex-direction: column;          /* stack bubbles on mobile */
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Each bubble */
+.bubble{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+/* Circle image: size responsively, not with vh */
+.bubble img{
+  width: clamp(140px, 45vw, 260px);/* grows with viewport, stays reasonable */
+  aspect-ratio: 1 / 1;             /* keep perfect circle without fixed height */
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.bubble p{
+  font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+  letter-spacing: 0.12rem;         /* slightly toned down for readability */
+  line-height: 1.35;
+}
+
+/* ========== Tablets and up ========== */
+@media (min-width: 768px){
+  #aboutMe{
+    flex-direction: row;           /* side-by-side on tablet+ */
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5vw;
+    gap: 3rem;
+  }
+
+  .bubbleContainer{
+    flex-direction: row;           /* bubbles side-by-side */
+    flex-wrap: wrap;               /* wrap if many */
+    justify-content: center;
+    gap: 2rem 2.5rem;
+  }
+
+  .bubble img{
+    width: clamp(160px, 22vw, 280px);
+  }
+
+  .bubble p{
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+  }
+}
+
+/* ========== Desktops and large screens ========== */
+@media (min-width: 1024px){
+  #aboutMe{
+    padding: 4rem 8vw;
+    gap: 4rem;
+  }
+
+  .bubble img{
+    width: clamp(200px, 18vw, 320px);
+  }
+}
+
+/* Optional: avoid layout jump from mobile browser UI shrinking vh */
+@supports (height: 100svh){
+  #aboutMe{ min-height: 70svh; }   /* "small viewport" height is safer on mobile */
+}
+
 
 /* --- Testimonial Section --- */
 .testimonials {
