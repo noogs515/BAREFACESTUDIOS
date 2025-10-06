@@ -85,7 +85,7 @@ header a {
 
 /* ----- About Me Section----- */
 
-/*#aboutMe{
+#aboutMe{
     display: flex;
     flex-direction: row;
     margin-left: 10vw;
@@ -125,7 +125,7 @@ header a {
     font-size: 20px;
     letter-spacing: .2rem;
 }
-*/
+
 
 /* ========== Mobile-first defaults (phones) ========== */
 #aboutMe{
@@ -136,7 +136,6 @@ header a {
   padding: 2rem 1rem;              /* breathing room on small screens */
   width: 100%;
   min-height: 60vh;                /* avoid locking to full viewport height */
-  background-image: url("./assets/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
