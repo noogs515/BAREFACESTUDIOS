@@ -28,12 +28,32 @@
     </header>
   
     <main>
-        <section id="booking" class="booking-wrap">
-            <iframe
-                src="https://app.squareup.com/appointments/buyer/widget/xz6v27ys4rwhdm/LBQGF7RYVVCRB"
-                loading="lazy" allow="payment *" frameborder="0">
-            </iframe>
-        </section>
+      <section class="booking-wrap">
+        <header class="booking-hero">
+          <p class="sub">Lashes • Facials • Skin Treatments</p>
+        </header>
+
+        <!-- Service tabs (your own UI) -->
+        <nav class="booking-tabs" aria-label="Services">
+          <button class="tab is-active" type="button" data-url="https://cal.com/frank-jung-jjy6b/lashes">Lashes</button>
+          <button class="tab" type="button" data-url="https://cal.com/frank-jung-jjy6b/facial">Facial</button>
+          <!-- add more services as needed -->
+        </nav>
+
+        <!-- The embedded calendar -->
+        <div class="booking-frame">
+          <iframe
+            id="calFrame"
+            title="Book with Bareface Studio"
+            src="https://cal.com/frank-jung-jjy6b/lashes"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowtransparency="true"
+          ></iframe>
+        </div>
+
+        <small class="note">Need help? Email hello@barefacestudio.com</small>
+      </section>
     </main>
 
     <!----------------------------------------------------------------------------------------------------------
